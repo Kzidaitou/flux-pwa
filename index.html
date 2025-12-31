@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+    />
+    <title>Flux - EV Charging</title>
+    
+    <!-- PWA Primary Tags -->
+    <link rel="manifest" href="manifest.json" />
+    <meta name="theme-color" content="#00e676" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    
+    <!-- iOS Specific Tags -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Flux" />
+    <link rel="apple-touch-icon" href="favicon.svg" />
+
+    <script>
+      /**
+       * 主题锁定脚本 (Theme Locking Script)
+       * 在首屏渲染前执行，防止移动端 Web 应用从白色闪烁到黑色
+       */
+      (function() {
+        try {
+          const userStr = localStorage.getItem('__MOCK_ACTIVE_USER__');
+          if (userStr) {
+            const user = JSON.parse(userStr);
+            if (user && user.preferences && user.preferences.darkMode === true) {
+              document.documentElement.classList.add('dark');
+            }
+          } else {
+            if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+              document.documentElement.classList.add('dark');
+            }
+          }
+        } catch (e) {
+          console.warn('Theme locking failed:', e);
+        }
+      })();
+    </script>
+
+    <style>
+      html { background: #f3f4f6; }
+      html.dark { background: #121212; }
+      body { margin: 0; }
+      #root:empty::before {
+        content: 'FLUX.';
+        position: fixed;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #00e676;
+        font-family: system-ui, sans-serif;
+        font-weight: 900;
+        font-size: 2rem;
+        letter-spacing: -0.05em;
+        animation: pulse 1.5s ease-in-out infinite;
+      }
+      @keyframes pulse { 0%, 100% { opacity: 0.5; } 50% { opacity: 1; } }
+    </style>
+
+    <script async src="https://ga.jspm.io/npm:es-module-shims@1.10.0/dist/es-module-shims.js"></script>
+    <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@19.2.1",
+    "react/": "https://esm.sh/react@19.2.1/",
+    "react-dom": "https://esm.sh/react-dom@19.2.1",
+    "react-dom/": "https://esm.sh/react-dom@19.2.1/",
+    "react-router": "https://esm.sh/react-router@^7.10.1",
+    "recharts": "https://aistudiocdn.com/recharts@^3.5.1",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.556.0",
+    "fs": "https://esm.sh/fs@^0.0.1-security",
+    "url": "https://esm.sh/url@^0.11.4",
+    "path": "https://esm.sh/path@^0.12.7",
+    "vite": "https://esm.sh/vite@^7.3.0",
+    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.2",
+    "jsqr": "https://esm.sh/jsqr@^1.4.0",
+    "tailwindcss": "https://esm.sh/tailwindcss@^4.1.18",
+    "dotenv": "https://esm.sh/dotenv@^17.2.3",
+    "fast-glob": "https://esm.sh/fast-glob@^3.3.3",
+    "tsconfig-paths-webpack-plugin": "https://esm.sh/tsconfig-paths-webpack-plugin@^4.2.0",
+    "leaflet/": "https://esm.sh/leaflet@^1.9.4/",
+    "leaflet": "https://esm.sh/leaflet@^1.9.4",
+    "@googlemaps/js-api-loader": "https://esm.sh/@googlemaps/js-api-loader@^2.0.2"
+  }
+}
+</script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="index.tsx"></script>
+  </body>
+</html>

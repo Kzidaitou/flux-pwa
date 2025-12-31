@@ -1,0 +1,9 @@
+{
+  "name": "Flux",
+  "description": "A cross-platform EV charging application with real-time station monitoring and charging session management.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone",
+    "geolocation"
+  ]
+}

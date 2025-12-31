@@ -1,0 +1,67 @@
+/* Platform-specific styles */
+
+/* =========================================
+   通用性能与辅助功能优化
+   ========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.reduce-motion *,
+.reduce-motion ::before,
+.reduce-motion ::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+  scroll-behavior: auto !important;
+}
+
+/* =========================================
+   H5 (Mobile Web) 交互优化
+   ========================================= */
+.platform-h5 {
+  touch-action: manipulation;
+}
+
+/* 针对 iOS 优化滚动流畅度 */
+.platform-h5 .scroll-container {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* 统一按钮点击态 */
+.platform-h5 button:active:not(:disabled) {
+  opacity: 0.7;
+  transform: scale(0.96);
+}
+
+/* =========================================
+   Native App 优化
+   ========================================= */
+.platform-app {
+  -webkit-touch-callout: none;
+}
+
+/* =========================================
+   Web (Desktop) 鼠标交互
+   ========================================= */
+.platform-web button:hover:not(:disabled) {
+  filter: brightness(1.1);
+}
+
+/* =========================================
+   安全区域辅助类 (Safe Area Helpers)
+   ========================================= */
+.pt-safe { padding-top: var(--sat, 0px); }
+.pb-safe { padding-bottom: var(--sab, 0px); }
+.mt-safe { margin-top: var(--sat, 0px); }
+.mb-safe { margin-bottom: var(--sab, 0px); }
+
+/* 如果在顶部且有状态栏，通常需要额外的间距 */
+.pt-safe-extra { padding-top: calc(var(--sat, 0px) + 1rem); }
+.pb-safe-extra { padding-bottom: calc(var(--sab, 0px) + 1rem); }

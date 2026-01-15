@@ -9,18 +9,17 @@ const ModalWrapper: React.FC<ModalWrapperProps & { title?: string }> = ({
   allowBackdropDismiss = false,
 }) => {
   return (
-    <div className="fixed inset-0 z-[200] flex items-end sm:items-center justify-center p-0 sm:p-4">
+    <div className="fixed inset-0 z-[500] flex items-end sm:items-center justify-center p-0 sm:p-4">
       {/* 遮罩层 - 深度毛玻璃效果 */}
       <div
         className="absolute inset-0 bg-black/80 dark:bg-black/95 backdrop-blur-md transition-opacity animate-in fade-in duration-500"
         onClick={() => {
-          if (allowBackdropDismiss) onClose();
+          if (allowBackdropDismiss) onClose()
         }}
       ></div>
 
       {/* 弹窗主体 - 极简大圆角与高级阴影 */}
       <div className="bg-white dark:bg-[#1c1c1e] border-t border-x border-gray-100 dark:border-white/5 w-full max-w-lg rounded-t-[3.5rem] sm:rounded-[3rem] relative z-[210] animate-in slide-in-from-bottom-32 fade-in duration-500 shadow-[0_-20px_60px_-15px_rgba(0,0,0,0.5)] h-[90vh] sm:h-auto sm:max-h-[85vh] flex flex-col pointer-events-auto overflow-hidden ring-1 ring-white/5">
-        
         {/* 指示条 - 移动端手势暗示 */}
         <div className="w-full flex justify-center pt-3 pb-1 shrink-0">
           <div className="w-12 h-1.5 bg-gray-200 dark:bg-gray-800 rounded-full opacity-60"></div>
@@ -35,14 +34,14 @@ const ModalWrapper: React.FC<ModalWrapperProps & { title?: string }> = ({
               </h3>
             )}
           </div>
-          
+
           <button
             type="button"
             title="Close"
             onClick={(e) => {
-              e.preventDefault();
-              e.stopPropagation();
-              onClose();
+              e.preventDefault()
+              e.stopPropagation()
+              onClose()
             }}
             className="w-11 h-11 flex items-center justify-center text-gray-400 hover:text-gray-900 dark:text-gray-500 dark:hover:text-white bg-gray-100 dark:bg-white/5 rounded-full transition-all active:scale-90 shrink-0 border border-gray-100 dark:border-white/5"
           >

@@ -40,7 +40,7 @@ const AlertModal: React.FC<AlertModalProps> = ({
   }
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+    <div className="fixed inset-0 z-[500] flex items-center justify-center p-4">
       <div
         className="absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity"
         onClick={allowBackdropDismiss ? onClose : undefined}
@@ -50,8 +50,8 @@ const AlertModal: React.FC<AlertModalProps> = ({
           type="button"
           title="Close"
           onClick={(e) => {
-            e.stopPropagation();
-            onClose();
+            e.stopPropagation()
+            onClose()
           }}
           className="absolute right-4 top-4 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 transition-colors p-2 z-20"
         >
@@ -61,7 +61,9 @@ const AlertModal: React.FC<AlertModalProps> = ({
         <div className="flex flex-col items-center text-center mt-2">
           <div className="mb-4 p-3 bg-gray-50 dark:bg-gray-800/50 rounded-full">{getIcon()}</div>
           <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">{title}</h3>
-          <p className="text-gray-600 dark:text-gray-300 text-sm mb-6 leading-relaxed px-2">{message}</p>
+          <p className="text-gray-600 dark:text-gray-300 text-sm mb-6 leading-relaxed px-2">
+            {message}
+          </p>
           <button
             onClick={onClose}
             className={`w-full py-3 rounded-xl font-bold transition-all shadow-lg active:scale-95 ${getButtonColor()}`}

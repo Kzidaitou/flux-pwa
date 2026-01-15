@@ -4,17 +4,17 @@ export interface MapMarker {
   id: string
   lat: number
   lng: number
-  title?: string
-  icon?: string
-  color?: string
-  status?: string
-  zIndex?: number
+  name?: string
+  color?: string // 标记主色
+  icon?: string // 图标名称或 URL（目前 TaroMap 用不到，可留给 H5 引擎）
   data?: any
 }
 
-/**
- * 统一地图控制器
- */
+export interface LatLng {
+  lat: number
+  lng: number
+}
+
 export interface MapController {
   panTo: (lat: number, lng: number, zoom?: number) => void
 }

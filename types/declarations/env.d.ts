@@ -18,8 +18,7 @@ interface ImportMetaEnv {
 
   // 平台与构建标识
   readonly NODE_ENV: 'development' | 'production' | 'test'
-  readonly BUILD_PLATFORM:
-    | 'web'
+  readonly BUILD_PLATFORM: 'web'
   readonly BUILD_TIME: string
 
   // 地图引擎配置
@@ -61,21 +60,21 @@ interface Window {
  */
 declare namespace google {
   namespace maps {
-    function importLibrary(libraryName: 'maps'): Promise<MapsLibrary>;
-    function importLibrary(libraryName: 'marker'): Promise<MarkerLibrary>;
-    function importLibrary(libraryName: string): Promise<any>;
+    function importLibrary(libraryName: 'maps'): Promise<MapsLibrary>
+    function importLibrary(libraryName: 'marker'): Promise<MarkerLibrary>
+    function importLibrary(libraryName: string): Promise<any>
 
     interface MapsLibrary {
-      Map: typeof Map;
+      Map: typeof Map
       // Added LatLngBounds to MapsLibrary interface
-      LatLngBounds: typeof LatLngBounds;
-      [key: string]: any;
+      LatLngBounds: typeof LatLngBounds
+      [key: string]: any
     }
 
     interface MarkerLibrary {
-      AdvancedMarkerElement: typeof AdvancedMarkerElement;
-      PinElement: any;
-      [key: string]: any;
+      AdvancedMarkerElement: typeof AdvancedMarkerElement
+      PinElement: any
+      [key: string]: any
     }
 
     class Map {
@@ -111,10 +110,11 @@ declare namespace google {
       constructor(opts: any)
       setMap(map: Map | null): void
       addListener(event: string, handler: Function): void
-      position: any;
-      content: HTMLElement;
-      zIndex: number;
-      title: string;
+      position: any
+      content: HTMLElement
+      zIndex: number
+      title: string
+      map: Map | null
     }
     enum SymbolPath {
       CIRCLE = 0,

@@ -4,11 +4,13 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
+    "predev:web": "pnpm generate:icons",
     "dev:web": "npm run generate:icons && cross-env NODE_ENV=development BUILD_PLATFORM=web vite",
+    "prebuild:web": "pnpm generate:icons",
     "build:web": "npm run sync:version && cross-env NODE_ENV=production BUILD_PLATFORM=web vite build",
     "preview:web": "cross-env NODE_ENV=production BUILD_PLATFORM=web vite preview",
-    "sync:version": "node --loader ts-node/esm scripts/sync-version.ts",
-    "generate:icons": "node --loader ts-node/esm scripts/generate-icons.ts"
+    "sync:version": "tsx scripts/sync-version.ts",
+    "generate:icons": "tsx scripts/generate-icons.ts"
   },
   "dependencies": {
     "@googlemaps/js-api-loader": "^2.0.2",
@@ -34,7 +36,7 @@
     "fast-glob": "^3.3.2",
     "postcss": "^8.5.3",
     "tailwindcss": "^3.4.17",
-    "ts-node": "^10.9.2",
+    "tsx": "^4.19.2",
     "typescript": "~5.8.2",
     "vite": "^6.2.0"
   }

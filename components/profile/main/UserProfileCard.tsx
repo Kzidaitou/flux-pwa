@@ -1,4 +1,3 @@
-
 import React from 'react'
 import { UserProfileCardProps } from '../../../types/modules/user'
 import { getVehicleBrandIcon } from '../../../constant/vehicle'
@@ -30,24 +29,24 @@ const UserProfileCard: React.FC<UserProfileCardProps> = ({ user, isLoading }) =>
       <div className="flex-1 min-w-0">
         <h3 className="text-xl font-bold text-gray-900 dark:text-white truncate">{user.name}</h3>
         <div className="flex items-center gap-2 mt-1">
-          <p className="text-gray-500 dark:text-gray-400 text-xs truncate">
-            {user.email}
-          </p>
+          <p className="text-gray-500 dark:text-gray-400 text-xs truncate">{user.email}</p>
           {user.vehicleBrand && (
             <>
               <div className="w-1 h-1 rounded-full bg-gray-300 dark:bg-gray-700 shrink-0"></div>
               <div className="flex items-center gap-1 bg-gray-100 dark:bg-white/5 px-2 py-0.5 rounded-full shrink-0">
                 <Icon name={vehicleIcon} size={10} className="text-primary" />
-                <span className="text-[9px] font-black text-gray-600 dark:text-gray-400 uppercase tracking-tighter">{user.vehicleBrand}</span>
+                <span className="text-[9px] font-black text-gray-600 dark:text-gray-400 uppercase tracking-tighter">
+                  {user.vehicleBrand}
+                </span>
               </div>
             </>
           )}
         </div>
       </div>
-      
+
       {/* Decorative large brand logo in background */}
       {user.vehicleBrand && (
-        <div className="absolute -right-4 -bottom-4 opacity-[0.03] dark:opacity-[0.07] rotate-12 pointer-events-none">
+        <div className="absolute -right-4 -bottom-4 opacity-[0.07] rotate-12 pointer-events-none text-gray-900 dark:text-white">
           <Icon name={vehicleIcon} size={120} />
         </div>
       )}
